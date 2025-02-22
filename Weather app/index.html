@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwind cdn  -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- remix icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="bg-black w-full h-screen flex justify-center items-center">
+      <div class="w-96 rounded-2xl bg-purple-900 text-white py-10 px-8">
+        <form class="w-full flex justify-between items-center">
+          <input
+            class="outline-none foucs:none w-10/12 gap-3 bg-white text-purple-900 placeholder:text-purple-900 px-6 py-2 rounded-3xl"
+            type="text"
+            id="search-text"
+            placeholder="Enter your City Name"
+          />
+          <button
+            id="search-btn"
+            class="bg-white text-purple-900 rounded-full px-3 py-1 text-lg cursor-pointer"
+          >
+            <i class="ri-search-line"></i>
+          </button>
+        </form>
+
+        <!-- temperature content -->
+        <div id="weather" class="hidden">
+          <div
+            id="temparture-content"
+            class="flex py-12 flex-col justify-center items-center gap-1"
+          >
+            <div id="temparture-icon" class="w-22">
+              <img id="weather-icon" src="./images/rain.png" alt="" />
+            </div>
+            <div class="flex flex-col justify-center items-center">
+              <h2 class="text-3xl font-bold">
+                <span id="temperature">22</span>&deg;C
+              </h2>
+              <p id="city-name" class="text-xl font-medium">New York</p>
+            </div>
+          </div>
+          <!-- temperature content -->
+          <!-- weather content -->
+          <div class="w-full flex justify-between items-center gap-20 pt-8">
+            <!-- humidly  -->
+            <div class="flex items-center gap-2">
+              <div>
+                <img class="w-18" src="./images/humidity.png" alt="" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">
+                  <span id="humidity">50</span>%
+                </h3>
+                <span class="text-sm font-medium">Humidity</span>
+              </div>
+            </div>
+            <!-- wind speed  -->
+            <div class="flex items-center gap-2">
+              <div>
+                <img class="w-18" src="./images/wind.png" alt="" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">
+                  <span id="wind-speed">15</span>km/h
+                </h3>
+                <span class="text-xs font-medium">Wind Speed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- weather content -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
