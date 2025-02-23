@@ -10,6 +10,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css"
     />
+    <!-- css  -->
+    <link rel="stylesheet" href="style.css" />
     <title>Todo List</title>
   </head>
   <body>
@@ -29,14 +31,16 @@
             placeholder="Enter your Task"
           />
           <button
-            id="submit-btn"
+            onclick="addTask()"
             class="text-white bg-orange-600 px-8 py-2 rounded-full"
           >
             Add
           </button>
         </div>
-        <div id="list-container">
-          <!-- <ul id=""></ul> -->
+        <div class="relative">
+          <ul class="space-y-2" id="list-container">
+            <!-- <li></li> -->
+          </ul>
         </div>
       </div>
     </div>

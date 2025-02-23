@@ -1,0 +1,40 @@
+ul li {
+  padding-left: 25px !important;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  background-image: url("./images/unchecked.png");
+  height: 18px;
+  width: 18px;
+  background-position: center;
+  background-size: cover;
+  top: 4px;
+  left: 0px;
+}
+ul li.checked {
+  color: gray;
+  text-decoration: line-through;
+}
+ul li.checked::before {
+  background-image: url("./images/checked.png");
+}
+ul li span {
+  position: absolute;
+  right: 0px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  transition: 0.3s ease-in;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+}
+ul li span:hover {
+  background-color: rgb(206, 202, 202);
+}
