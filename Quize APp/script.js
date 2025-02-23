@@ -39,7 +39,7 @@ const questions = [
 
 const question = document.getElementById("question");
 const answerBtn = document.getElementById("answer-btn");
-const nextBtn = document.getElementById("next-btn");
+let nextBtn = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -47,7 +47,7 @@ let score = 0;
 const startQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
-  nextBtn.innerHTML = "Next";
+  nextBtn.innerHTML = `Next`;
   showQuestion();
 };
 
@@ -58,21 +58,59 @@ const showQuestion = () => {
   question.innerHTML = questionNo + "." + currentQuestion.question;
 
   currentQuestion.answer.forEach((ans) => {
-    console.log(ans);
-    console.log(ans.text);
     const button = document.createElement("button");
     button.innerHTML = ans.text;
     button.classList.add("btn");
     answerBtn.appendChild(button);
+    if (ans.correct === true) {
+      button.dataset.correct = ans.correct;
+    }
+    button.addEventListener("click", (e) => {
+      if (ans.correct === true) {
+        button.classList.add("correct");
+        score++;
+      } else {
+        button.classList.add("incorrect");
+      }
+      Array.from(answerBtn.children).forEach((btn) => {
+        if (btn.dataset.correct === "true") {
+          btn.classList.add("correct");
+        }
+        btn.disabled = true;
+      });
+      nextBtn.classList.remove("hidden");
+      nextBtn.classList.add("flex");
+    });
   });
 };
 
 const resetState = () => {
-  nextBtn.classList.remove("hidden");
-  nextBtn.classList.add("flex");
   while (answerBtn.firstChild) {
     answerBtn.removeChild(answerBtn.firstChild);
   }
 };
+
+const showScore = () => {
+  resetState();
+  question.innerHTML = `You Scored ${score} out of ${questions.length}`;
+  nextBtn.innerHTML = "Play Again";
+};
+
+const handleNextBtn = () => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+};
+
+nextBtn.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextBtn();
+  } else {
+    startQuiz();
+  }
+});
 
 startQuiz();
