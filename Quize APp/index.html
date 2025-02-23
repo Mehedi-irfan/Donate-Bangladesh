@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- tailwind css  -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <!-- css  -->
+   <link rel="stylesheet" href="style.css">
+</head>
+  <title>Document</title>
+</head>
+<body class="bg-black flex justify-center items-center w-full h-screen">
+  <div class="w-1/3 bg-white text-black px-6 py-10 rounded-2xl ">
+  <h2 class="text-2xl font-bold border-b border-gray-400 pb-5">Simple Quiz App</h2>
+  <h3 id="question" class="text-lg font-semibold py-3">Question are here</h3>
+  <div id="answer-btn" class="w-full space-y-3">
+    <button class="btn">Answer 1</button>
+    <button class="btn">Answer 2</button>
+    <button class="btn">Answer 3</button>
+    <button class="btn">Answer 4</button>
+  </div>
+    <div class="hidden justify-center">
+      <button id="next-btn" class="mt-5 px-10 py-2 bg-blue-900 text-white border border-r-blue-900 rounded text-center">Next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
